@@ -52,7 +52,7 @@ npm install morgan
 3. Config database, you can set the configuration according to config folder
    
    ```
-   const conn = mysql.createConnection({
+   const db = mysql.createConnection({
      host: 'localhost',
      user: 'root',
      password: '',
