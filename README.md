@@ -8,16 +8,16 @@ this project is a simple implementation of RESTful API using *framework* Express
 * ExpressJS
 
 ```
-- npm install express
+ npm install express
 ```
 
-* mySQL
+- mySQL
 
 ```
-- npm install mysql
+ npm install mysql
 ```
 
-* morgan
+- morgan
 
 ```
 npm install morgan
