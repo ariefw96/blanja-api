@@ -8,13 +8,13 @@ this project is a simple implementation of RESTful API using *framework* Express
 * ExpressJS
 
 ```
-npm install express
+- npm install express
 ```
 
 * mySQL
 
 ```
-npm install mysql
+- npm install mysql
 ```
 
 * morgan
@@ -93,16 +93,16 @@ POST
 
 ```js
 GET
-/products/search?name=x&category=y
+api/products/search?name=x&category=y
 ```
 
 - sort product by name, date, and price
 
 ```js
 GET
-/products?price=desc 
-/products?name=asc 
-/products?date=desc 
+api/products?price=desc 
+api/products?name=asc 
+api/products?date=desc 
 ```
 
 
