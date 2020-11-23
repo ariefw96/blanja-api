@@ -184,7 +184,7 @@ app.get("/products/search", (req, res) => {
 
 })
 
-// Filter by Name / Price / Date
+// Sort by Name / Price / Date
 app.get("/products", (req, res) => {
     const getAllProducts = new Promise ((resolve, reject) => {
         let SQL_query = 
@@ -267,7 +267,7 @@ app.patch("/product/update", (req, res) => {
         const queryStr = "UPDATE main_product SET ? WHERE id = ?"
         db.query(queryStr, [updatePatch, id], (err, data) => {
             if (!err) {
-                resolve(data)
+                resolve(updatePatch)
             } else {
                 reject(err)
             }
@@ -276,7 +276,7 @@ app.patch("/product/update", (req, res) => {
     update.then((result) => {
         const output = {
             msg: `Data updated at id ${id}`,
-            ...updatePatch,
+            ...result,
         }
         res.json(output)
     }).catch((error) => {
