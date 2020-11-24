@@ -5,24 +5,11 @@ this project is a simple implementation of RESTful API using *framework* Express
 ## Requirements
 
 - npm [Node.js](https://nodejs.org/en/download/)
-* ExpressJS
+* ExpressJS, MySQL, morgan
 
 ```
- npm install express
+ npm install express, mysql, morgan
 ```
-
-- mySQL
-
-```
- npm install mysql
-```
-
-- morgan
-
-```
-npm install morgan
-```
-
 
 
 ## Getting started
@@ -32,7 +19,7 @@ npm install morgan
 1. Clone repository
    
    ```
-   https://github.com/ariefw96/blanja-api
+   git clone https://github.com/ariefw96/blanja-api
    ```
 
 2.  Install additional package
@@ -53,10 +40,10 @@ npm install morgan
    
    ```
    const db = mysql.createConnection({
-     host: 'localhost',
-     user: 'root',
-     password: '',
-     database: 'blanja.in'
+     host: '', //your DB host here
+     user: '', //your DB username here
+     password: '', //your DB password here
+     database: '' //your DB name here
    });
    ```
 
@@ -120,6 +107,7 @@ DELETE
 /api/product/delete?id=id
 ```
 
-Dokumentasi POSTMAN https://documenter.getpostman.com/view/13530339/TVewY4R3
-satukan npm install, untuk tiap endpoint API beri contoh input / output (berupa msg response, object cukup diberitau bahwa itu objek tidak perlu di reveal)
-database bentuk saja template //your xx here
+Dokumentasi POSTMAN [here](https://documenter.getpostman.com/view/13530339/TVewY4R3)
+```js
+Notes : untuk tiap endpoint API beri contoh input / output (berupa msg response, object cukup diberitau bahwa itu objek tidak perlu di reveal)
+```
