@@ -103,7 +103,8 @@ app.post("/product/new_product", (req, res) => {
                     reject(`Gagal!`)
                 }
             })
-        }).then((result2) => {
+        })
+        insert_main.then((result2) => {
             res.json(result2)
         }).catch((error) => {
             res.json(error)
@@ -129,7 +130,8 @@ app.post("/product/existing-product", (req, res) => {
                 reject(err)
             }
         })
-    }).then((result) => {
+    })
+    insertMain.then((result) => {
         res.json(result)
     }).catch((error) => {
         res.json(error)
@@ -141,7 +143,7 @@ app.post("/product/existing-product", (req, res) => {
 //READ
 //search By Name / Cat / Name & Cat
 app.get("/products/search", (req, res) => {
-    let params
+    let params,msg
     const searchName = new Promise((resolve, reject) => {
         let queryStr =
             `SELECT m.id, p.product_name,c.id, c.category_name, pc.color_name, ps.size_name, pco.condition_name, p.product_desc, p.product_img, m.qty, m.price, m.created_at, m.updated_at 
@@ -239,10 +241,11 @@ app.get("/product", (req, res) => {
                 reject(err)
             }
         })
-    }).then((result) => {
+    })
+    getProd.then((result) => {
         res.json(result)
     }).catch((error) => {
-        res.json(err)
+        res.json(error)
     })
 })
 
@@ -332,7 +335,8 @@ app.post("/transaction/add", (req, res) => {
                 reject(err)
             }
         })
-    }).then((result) => {
+    })
+    addTrx.then((result) => {
         res.json(result)
     }).catch((error) => {
         res.json(error)
@@ -360,16 +364,17 @@ app.get("/transaction/history", (req, res) => {
                 reject(err)
             }
         })
-    }).then((result) => {
+    })
+    TransHistory.then((result) => {
         res.json(result)
     }).catch((error) => {
-        res.json(`gagal`)
+        res.json(error)
     })
 })
 
 //RATING
 //CREATE RATING
-app.post("/rating", (req, res) => {
+app.post("/rating/add", (req, res) => {
     let obj
     const ratingFile = req.body
     const newRating = new Promise ((resolve, reject) => {
@@ -381,7 +386,8 @@ app.post("/rating", (req, res) => {
                 reject(`gagal!`)
             }
         })
-    }).then((result) => {
+    })
+    newRating.then((result) => {
         obj = {
             msg : result
         }
@@ -401,7 +407,8 @@ app.get("/rating", (req, res) => {
         `SELECT concat(u.firstname,' ',u.lastname) AS "Nama" , p.product_name AS "Nama Produk", r.rating AS "Rating", r.review AS "Review", r.created_at AS "Waktu"
         FROM rating_review r
         JOIN user u ON r.user_id = u.id 
-        join product p ON r.product_id = p.id`
+        join product p ON r.product_id = p.id
+        ORDER BY r.created_at DESC`
         db.query(queryStr, (err, data) => {
             if(!err){
                 resolve(data)
@@ -409,7 +416,8 @@ app.get("/rating", (req, res) => {
                 reject(err)
             }
         })
-    }).then((result) => {
+    })
+    viewRating.then((result) => {
         res.json(result)
     }).catch((error) => {
         res.json(error)
