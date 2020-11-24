@@ -121,3 +121,5 @@ DELETE
 ```
 
 Dokumentasi POSTMAN https://documenter.getpostman.com/view/13530339/TVewY4R3
+satukan npm install, untuk tiap endpoint API beri contoh input / output (berupa msg response, object cukup diberitau bahwa itu objek tidak perlu di reveal)
+database bentuk saja template //your xx here
